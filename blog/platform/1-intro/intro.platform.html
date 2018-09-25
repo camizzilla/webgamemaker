@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Roberto Cazzaniga Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Roberto Cazzaniga</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <article>
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <img class="card-img-top" src="https://image.ibb.co/b0G2Oz/cover.jpg" alt="Cover creare platform: Introduzione">
+
+                    <div class="card-header">
+                        <h1>Creare un platform game per il web: introduzione</h1>
+                        <h4 class="card-title">Cos'è un platform e i requisiti per programmare in html5 e javscript</h4>
+                    </div>
+                    <!-- card-header -->
+
+                    <div class="card-body">
+                        <div>
+                            <p>In questa serie di articoli impareremo a creare un semplice videogame in
+                                <strong>html5 e javascript</strong>
+                            </p>
+                            <p>Un platform è un videogioco dove il protagonista salta da una "piattaforma", da cui il nome del
+                                genere, all'altra.</p>
+                            <p>Lo scopo di questi giochi di solito è molto semplice. Superare i vari livelli, sopravvivendo
+                                a nemici, trappole e ostacoli fino al raggiungimento di un obiettivo., per farlo puoi o raggiungere
+                                un'area, o un portale, oppure recuperare tutti gli oggetti sparsi o, infine, uccidere tutti
+                                i nemici presenti.</p>
+
+                            <div>
+                                <h4>Generi di platform</h4>
+                                <p>Sicuramente il capostipite di questo genere è il mitico
+                                    <i>"SuperMario"</i>, ma ci sono tanti sottogeneri molto diversi tra loro, ve ne elenco solo
+                                    alcuni:</p>
+                                <ul>
+                                    <li>
+                                        <p>A
+                                            <strong>scorrimento laterale</strong>, il genere più classico, alcuni esempi famosi sono:
+                                            <i>Super Mario Bros</i>,
+                                            <i>Ghosts 'n Goblins</i>,
+                                            <i>Castlevania</i>.</p>
+                                        <ul class="row list-unstyled justify-content-md-center">
+                                            <li class="col-4 col-md-4 ">
+                                                <img class="img-fluid" src="https://image.ibb.co/bDUJw8/super_mario_bros.jpg" alt="super mario bros">
+                                            </li>
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/b0NGio/Ghost_039_n_Goblins.jpg" alt="ghost n goblins">
+                                            </li>
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/nHGWto/castlevania.jpg" alt="castelvania">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>Gli adrenalinici
+                                            <strong>Run-and-gun</strong>, dove bisogna sparare a tutto quello che si muove :
+                                            <i>Contra</i>,
+                                            <i>Metal Slug</i> sono tra i più famosi.
+                                        </p>
+                                        <ul class="row list-unstyled justify-content-md-center">
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/bBB1io/metal_slug.jpg" alt="metal slug">
+                                            </li>
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/gsP7do/contra.jpg" alt="Contra">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <strong>Cinematic platform game</strong>, di questo genere esistono capolavori come
+                                            <i>Another World</i> e
+                                            <i>Flashback</i>
+                                        </p>, questo tipo di platform game, è il mio preferito
+                                        <ul class="row list-unstyled justify-content-md-center">
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/kpJuDo/another_world.jpg" alt="another world">
+                                            </li>
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/bV4CzT/flashback.jpg" alt="flashback">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>I
+                                            <strong>Puzzle game</strong>, che oltre all’abilità necessitano di un po’ di ingegno
+                                            per passare i vari livelli. Molto belli sono:
+                                            <i>Limbo</i>
+                                            e
+                                            <i>Braid</i>
+                                        </p>
+                                        <ul class="row list-unstyled justify-content-md-center">
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/heZeeT/limbo.jpg" alt="limbo">
+                                            </li>
+                                            <li class="col-4 col-md-4">
+                                                <img class="img-fluid" src="https://image.ibb.co/h0K1to/braid.jpg" alt="braid">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Struttura del gioco</h4>
+
+                                <p>Di generi ce ne sono molti altri, quello che andremo creare sarà un
+                                    <strong>“single-screen” platform</strong>, come Donkey Kong, il primo Mario Bros e Bubble Bobble.
+                                    Dove tutto il livello
+                                    <strong>si svolge in una schermata fissa</strong>.</p>
+                                <p>Il gioco che andremo a creare, sarà molto semplice, ma ci servirà per imparare varie logiche
+                                    e dinamiche di gioco per il web e soprattutto ci servirà come base per quando creeremo
+                                    platform più complessi.</p>
+                                <ul class="row list-unstyled justify-content-md-center">
+                                    <li class="col-4 col-md-4 ">
+                                        <img class="img-fluid" src="https://image.ibb.co/jfg18z/donkey_kong.jpg" alt="super mario bros">
+                                    </li>
+                                    <li class="col-4 col-md-4">
+                                        <img class="img-fluid" src="https://image.ibb.co/nzkToz/mario_bros.jpg" alt="ghost n goblins">
+                                    </li>
+                                    <li class="col-4 col-md-4">
+                                        <img class="img-fluid" src="https://image.ibb.co/dSB18z/bubble_booble.jpg" alt="castelvania">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Che cosa ci serve</h4>
+                                <p>Il nostro gioco sarà interamente in
+                                    <a href="http://vanilla-js.com/">Vanilla Js</a>, che altro non è che un modo scherzoso di chiamare il
+                                    <strong>Javascript puro, senza bisogno di framework</strong> vari, quindi, non avremo bisogno
+                                    di scaricare nulla. </p>
+                                <p>Per cominciare, ci servono due cose fondamentali: un browser, che dovresti già avere, come:
+                                    Firefox, Chrome (non osare utilizzare Internet Explorer
+                                    <span class="emoj emoj-wink"></span>) e un IDE, un programma che ci permette di scrivere codice. Al posto di IDE potresti
+                                    usare anche il BloccoNote, ma ti assicuro che è molto scomodo e quindi non te lo consiglio
+                                    affatto. </p>
+                                <p>Il mio preferito in assoluto è
+                                    <a href="https://code.visualstudio.com/">Visual Code</a>, il migliore tra quelli gratuiti.</p>
+
+                                <p>Adesso che abbiamo un'introduzione generale, possiamo andare sullo specifico con il prossimo
+                                    articolo...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card-body -->
+
+                    <!-- <div class="card-footer text-muted">
+                        {{articleFields.datePublished}}
+                    </div> -->
+                    <!-- card-footer -->
+
+                </div>
+                <!-- card -->
+            </article>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

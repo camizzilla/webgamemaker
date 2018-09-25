@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Roberto Cazzaniga Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Roberto Cazzaniga</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <article>
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <img class="card-img-top" src="https://image.ibb.co/jNzTqp/cover2.jpg" alt="Cover creare platform: Canvas">
+
+                    <div class="card-header">
+                        <h1>Creare un platform game per il web: Iniziamo, anzi inizializiamo</h1>
+                        <h4 class="card-title">Inizializiamo, iniziamo a posare le basi del gioco</h4>
+                    </div>
+                    <!-- card-header -->
+
+                    
+                    <div class="card-body">
+                        <p>Iniziamo a creare il codice base che ci servirà, sia per questo gioco, sia per la maggior parte
+                            dei giochi che svilupperemo.</p>
+    
+                        <code>var canvas = document.getElementById("myCanvas");</code> <br>
+                        <code>var context = canvas.getContext('2d');</code> <br>
+                        <code>canvas.width = 640;</code> <br>
+                        <code>canvas.height = 480;</code> <br>
+                        <div>
+                            <p> Nell’articolo precedente abbiamo creato il tag &lt;canvas
+                                id="myCanvas"&gt;&lt;/canvas&gt; nel file index html e gli abbiamo dato un
+                                identificativo (id).</p>
+                            <p>Per gestire il nostro canvas catturiamo l'oggetto Html grazie al metodo Javascript,
+                                <strong>"getElementById"</strong> trammite il suo id “myCanvas” e lo salviamo della
+                                variabile “canvas”.
+                                Poi con il metodo <strong>getContext</strong> richiamiamo nella variabile ctx tutte le
+                                funzioni che ci serviranno per gestire il contesto indicato.</p>
+                            <p>Nel nostro caso, essendo un gioco in 2 dimensioni, richiameremo i metodi per che
+                                serviranno per il "2d"</p>
+
+                            <!-- Creare un blocco di colore diverso per le domande -->
+                            <i>Ma quindi, ci sono altri contesti?</i>
+                            <p>Si, ci sono i contesti “webgl” e “webgl2” che gestiscono il 3d. E’ ancora una tecnologia
+                                acerba e in fase embrionale, ma tenere sottocchio.</p>
+                            <p>Se sei curioso, dai un occhio alla mia pagina facebook, <a href="https://www.facebook.com/webgamemaker">web
+                                    game maker</a>, dove posto sempre esperimenti 3d, trovati in rete che ti fanno
+                                capire il potenziale di questa tecnologia.</p>
+                            <p>Ad esempio, questa animazione mi ha lasciato a bocca aperta: <a href="https://www.martin-laxenaire.fr/experiments/fall-of-neo-dubai/">fall-of-neo-dubai</a>
+                            </p>
+
+                            <p>Torniamo ad analizzare il codice, con canvas.width e canvas.height diamo rispettivamente
+                                la lunghezza e l’altezza al canvas.</p>
+
+                            <h3>Creiamo un'introduzione</h3>
+                            <p>Per prendere confidenza con alcuni metodi del canvas che abbiamo richiamato con
+                                getContext, creiamo una semplice presentazione del gioco.</p>
+                            <p>Sarà una schermata colorata con al centro una scritta, di due dimensioni e di due tipi
+                                di font. Scomparirà dopo 3 secondi lasciando il posto al gioco vero e proprio.</p>
+
+                            <code>var intro = () => {</code><br>
+                            <code>&nbsp;&nbsp;context.fillStyle = "#ffad6a";</code><br>
+                            <code>&nbsp;&nbsp;context.fillRect(0, 0, canvas.width, canvas.height);</code><br>
+
+                            <code>&nbsp;&nbsp;context.font = "50px Impact";</code><br>
+                            <code>&nbsp;&nbsp;context.fillStyle = "#6a8aff";</code><br>
+                            <code>&nbsp;&nbsp;context.textAlign = "center";</code><br>
+                            <code>&nbsp;&nbsp;context.fillText("INTRODUZIONE", canvas.width / 2, canvas.height / 2);</code><br>
+
+                            <code>&nbsp;&nbsp;context.fillStyle = "#6a8aff";</code><br>
+                            <code>&nbsp;&nbsp;context.font = "20px Arial";</code><br>
+                            <code>&nbsp;&nbsp;context.fillText("Tra 3 secondi partirà il gioco",canvas.width /
+                                2,canvas.height / 2 + 50);</code><br>
+                            <code>}</code>
+
+                            <p>Analiziamo ivari comandi del codice: </p>
+                            <p><strong>fillStyle(colore)</strong> Definisce il colore dell’elemento successivo, che nel
+                                nostro caso è un bellissimo arancione (faccina schifata).</p>
+                            <p><strong>fillRect(x, y, larghezza, altezza)</strong> Stampa a video un rettangolo, che
+                                parte dal punto Origine (0,0) ed è largo e alto esattamente come il canvas.</p>
+                            <p><strong>font(font)</strong> Definisce il tipo e la grandezza del font </p>
+                            <p><strong>textAlign()</strong> Allinea il testo</p>
+                            <p><strong>fillText(“testo”, x, y)</strong> Stampa a video il testo che gli passiamo come
+                                primo argomento e lo posizione nel canvas, con gli altri due. Nel nostro caso lo
+                                abbiamo centrato, come x, la metà della larghezza del canvas e come y, la metà della
+                                lunghezza del canvas.</p>
+                               <code>var startGame = () => {</code><br> 
+                               <code>&nbsp;&nbsp;intro();</code><br>     
+                               <code>&nbsp;&nbsp;setTimeout(function() {</code><br>     
+                               <code>&nbsp;&nbsp;&nbsp;&nbsp;loopGame();</code><br>     
+                               <code>&nbsp;&nbsp;}, 3000);</code><br>     
+                               <code>};</code><br>     
+                            <p>Richiamiamo la nostro funzione intro dentro la funzione StartGame, che come dice il nome è la funzione che fa partire il gioco.</p> 
+                            <p>Poi come promesso nell’intro, usando il comando javascript <strong>"setTimeout"</strong> dopo 3000 millesimi, che equivalgono a 3 secondi, parte il cuore del nostro gioco, la funzione loopGame, che vedremo nel dettaglio nell'articolo "".</p> 
+                            <canvas id="platform-canvas-init" style="border: 1px solid black"></canvas>
+                            <p>Naturalmente, dopo la intro apparirà uno schermo vuoto, ma niente paura nel <a href="">prossimo articolo</a> , creeremo il nostro livello con delle immagini.</p>
+                               
+                            <p>Per adesso, come esercizio, dopo la intro fai apparire una schermata a tuo piaciamento, con colore di sfondo, scritte e formattazione a tua scelta.  BuonDivertimento.</p>
+                               
+                               
+                        </div>
+                        <!-- card-body -->
+
+                        <!-- <div class="card-footer text-muted">
+                        {{articleFields.datePublished}}
+                    </div> -->
+                        <!-- card-footer -->
+
+                    </div>
+                    <!-- card -->
+            </article>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../js/canvas/canvas.js"></script>
+    <script src="inizializzazione.platform.js" type="module"></script>
+
+</body>
+
+</html>

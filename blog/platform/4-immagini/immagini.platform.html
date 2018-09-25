@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Roberto Cazzaniga Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Roberto Cazzaniga</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <article>
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <img class="card-img-top" src="https://image.ibb.co/jNzTqp/cover2.jpg" alt="Cover creare platform: Canvas">
+
+                    <div class="card-header">
+                        <h1>Creare un platform game per il web: Immagini</h1>
+                        <h4 class="card-title"></h4>
+                    </div>
+                    <!-- card-header -->
+
+
+                    <div class="card-body">
+                        <div>
+                            <p>Nell'articolo precedente <a href="">"Iniziamo, anzi inizializiamo"</a> ci siamo scaldati
+                                creando una semplice introduzione testuale.</p>
+                            <p>Obiettivo di questo articole è caricare a video delle immagini statiche che serviranno a
+                                creare il livello.</p>
+                            <p>Creiamo un nuovo oggetto Image() e salviamo il percorso di dove si trova l’immagine che
+                                vogliamo caricare. </p>
+
+                            <code>let sMario= new Image();</code><br>
+                            <code>sMario.src = “https://image.ibb.co/hJBkCy/mario.png”;</code><br>
+
+                            <p>Creiamo un nuovo oggetto Image() e salviamo il percorso di dove si trova l’immagine che
+                                vogliamo caricare. </p>
+                            <p>Ho usato un immagine del mitico super mario, è una risorsa esterna e usabile per uso non
+                                commerciale, come tutte le immagini che userò.</p>
+                            <p> Quindi sentiti libero di usarle a tua piacimento.</p>
+                            <img src="https://image.ibb.co/hJBkCy/mario.png" alt="Super Mario Bros">
+                            <p>Per stampare a video si usa il metodo del context, <strong>drawImage(img, x,y)</strong>
+                                che prende come
+                                parametri, l’immagine che abbiamo salvato nella variabile img e le coordinate spaziali
+                                x y per il posizionamento nel canvas.
+                            </p>
+                            <code>let sMario= new Image();</code><br>
+                            <code>sMario.src = “https://image.ibb.co/hJBkCy/mario.png”;</code><br><br>
+
+                            <code>var loopGame = () => {</code><br>
+                            <code>&nbsp;&nbsp;canvasInit.ctx.drawImage(sMario, 0,0);</code><br>
+                            <code>}</code><br><br>
+
+
+                            <code>var startGame = () => {</code><br>
+                            <code>&nbsp;&nbsp;setTimeout(function() {</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;loopGame();</code><br>
+                            <code>&nbsp;&nbsp;}, 3000);</code><br>
+                            <code>};</code><br>
+                            <p> Mettiamo la riga di codice nella funzione <strong>GameLoop</strong> e vediamo in
+                                seguito il risultato.
+                            </p>
+                            <canvas id="platform-canvas-init" style="border: 1px solid black"></canvas>
+                            <i>Ammazza, quanto è grande, occupa tutto lo spazio.</i>
+                            <p>Effettivamente, così grande è inutilizzabile, per questo lo rimpiccioliamo, aggiungendo
+                                altri due argomenti alla funzione che indicheranno la grandezza e la lunghezza
+                                dell’immagine.
+                                DrawImage(img, x, y, larghezza, lunghezza).</p>
+                            <canvas id="platform-canvas-init2" style="border: 1px solid black"></canvas>
+                            <h3>Paragrafo 2</h3>
+                            <p>il nostro platform è formato da molti elementi grafici e creare un oggetto per ogni
+                                immagine diventa molto poco performante, quindi una soluzione ottimale è caricare in
+                                un’unica immagine grande che contiene tutti gli elementi e che andremo a selezionare
+                                solo la porzione che ci serve.</p>
+                            <p>
+                                Visto le mie scarse doti artistiche, mi sono scaricato dalla pagina <a href="https://opengameart.org/content/platformer-art-deluxe">https://opengameart.org/content/platformer-art-deluxe</a>
+                                , una collezioni di immagini, creata da <a href="https://www.kenney.nl">https://www.kenney.nl</a>
+                                da cui ho estrapolato tra le tante questa che trovo perfetta per il platform.
+                            </p>
+                            <img src="https://image.ibb.co/gE8G6e/items_spritesheet.png" alt="items spritesheet">
+
+                            <code>let ItemsBundle= new Image();</code><br>
+                            <code>ItemsBundle.src = “https://image.ibb.co/gE8G6e/items_spritesheet.png”</code><br>
+
+                            <p>
+                                Una volta creato un nuovo oggetto con l'immagine,andiamo a selezionare gli elementi che
+                                vogliamo posizionare.
+                                Useremo sempre il metodo visto in precedenza, aggiungendo ulteriori argomenti, andiamo
+                                ad analizzarli.
+                            </p>
+                            <p>
+                                DrawImage(img, xSelezione, ySelezione, larghezzaSelezione, lunghezzaSelezione,
+                                xImmagine, yImmagine, larghezzaImmagine, lunghezzaImmagine);
+                            </p>
+                            <p>
+                                Img, è l'oggetto dov'è stata caricata l'immagine.
+                            </p>
+                            <p>
+                                xSelezione e Yselezione sono le coordinate di partenza della selezione nella nostra
+                                immagine, mentre la larghezzaSelezione e lunghezzaSelezione ritagliano l’immagine in un
+                                quadrilatero delle dimensioni richieste.</p>
+                            <p>Gli altri 4 argomenti, xImmagine, YImmagine, larghezzaImmagine e lunghezzaImmagine. Li
+                                abbiamo già visti nel precedente paragrafo e sono il posizionamento x y dell’ oggetto
+                                selezionato nel canvas e la larghezza e la lunghezza dell'oggetto selezionato.</p>
+                            <p>L’esempio n3,renderà tutto più semplice.</p>
+                            <img src="https://image.ibb.co/hZQFjz/items_spritesheet.jpg" alt="items spritesheet"><br>
+                            <i>Ma come faccio a sapere le coordinate e le dimensioni esatte? Non dovrò mica usare il
+                                righello?</i>
+                            <p>Assolutamente no, insieme alle immagini fortunatamente c'era un file xml, con tutte le
+                                informazioni per la selezione.</p>
+                            <p>&lt;SubTexture height="70" width="70" y="72" x="131" name="gemYellow.png"/&gt;</p>
+                            <i>Ma se io volessi prendere delle immagini sparse e volessi unirle in un unica? Poi dovrei
+                                segnarmi tutte le coordinate e le dimensioni?</i>
+                            <p>In rete ci sono dei programmi che svolgono questo annoso compito al posto tuo, aggregano
+                                le immagini e ti creano in automatico un file con tutti i dati. Questo sarà sicuramente
+                                argomento di uno dei prossimo post.</p>
+
+                            <p>Quello che ci serve, saranno due gemme gialle, che andiamo a posizionare sullo schermo,
+                                perché per passare il livello dovremmo recuperarle entrambi.</p>
+                            <p>Non ti aspettavi un gioco così complesso.</p>
+                            <p>Quindi, la gemma si trova all'interno dell'immagine alle coordinate x:131 e y:72, ed è
+                                lunga 70px e alta 70px, vedi esempio 5.</p>
+                            <p>Ne posizioniamo una delle dimensioni esatte e la seconda grande il doppio, sul canvas
+                                rispettivamente x 100 e y 300, la prima è x 200 e y 150 rispetto al cavas.</p>
+                            <p>Vediamo il risultato nell'esempio 6.</p>
+                            <canvas id="platform-canvas-init3" style="border: 1px solid black"></canvas><br>
+
+                            <code>let ItemsBundle= new Image();</code><br>
+                            <code>ItemsBundle.src = 'https://image.ibb.co/gE8G6e/items_spritesheet.png';</code><br>
+
+                            <code>loopGame = () => {</code><br> 
+                            <code>&nbsp;&nbsp;canvasInit3.ctx.drawImage(ItemsBundle, 131, 72, 70, 70, 100, 300, 70, 70);</code><br>
+                            <code>&nbsp;&nbsp;canvasInit3.ctx.drawImage(ItemsBundle, 131, 72, 70, 70, 200, 150, 140, 140);</code><br>
+                            <code>}</code><br>
+
+
+                            <code>startGame = () => {</code><br> 
+                            <code>&nbsp;&nbsp;ItemsBundle.onload = function() {</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;loopGame();</code><br>
+                            <code>&nbsp;&nbsp;}</code><br>
+                            <code>};</code><br>
+
+                            <p>Questo non è il modo migliore per creare la struttura di un livello, in un prossimo articolo ti spiegherò qual è la miglior soluzione.</p>
+                            <p>Ho momentaneamente fatto sparire l'introduzione per due motivi: </p>
+                            <p>primo, per praticità, apettare sempre 3 secondi prima di vedere l'output era [una rottura di palle]</p>
+                            <p>Secondo, per farvi vedere un evento javascript, onload, che fa partire, nel nostro caso, la funzione "loopGame()" che stampa a video le immagini.<p>
+                            <p>Senza questa accortezza, essendo javascript un linguaggio asincrono, la funzione sarebbe partita prima del caricamento dell'immagine non mostrando nulla sul canvas.</p>
+                            <h3>Ricapitolo</h3>
+                            <p>Ricapitolando abbiamo visto come si stampano a video i vari componenti statici, sicuramente il secondo metodo è preferibile ed é importante capirlo e padroneggiarlo per il meglio.</p> 
+                            <p>Anche perché è la base per creare gli sprite, ovvero immagini animate, tra cui il nostro protagonista. Ma di questo ne parleremo approfonditamente nel prossimo capitolo… </p>
+                            <canvas id="platform-canvas-init4" style="border: 1px solid black"></canvas><br>
+                            
+                        </div>
+                        <!-- card-body -->
+
+                        <!-- <div class="card-footer text-muted">
+                        {{articleFields.datePublished}}
+                    </div> -->
+                        <!-- card-footer -->
+
+                    </div>
+                    <!-- card -->
+            </article>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../js/canvas/canvas.js"></script>
+    <script src="immagini.platform.js" type="module"></script>
+
+</body>
+
+</html>
