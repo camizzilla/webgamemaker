@@ -12,7 +12,7 @@ var intro = () => {
     canvasInit.ctx.fillText("INTRODUZIONE", canvasInit.canvas.width / 2, canvasInit.canvas.height / 2);
     canvasInit.ctx.fillStyle = "#6a8aff";
     canvasInit.ctx.font = "20px Arial";
-    canvasInit.ctx.fillText("Tra 3 secondi partirà il gioco",canvasInit.canvas.width / 2,canvasInit.canvas.height / 2 + 50);
+    canvasInit.ctx.fillText("Premi invio per iniziare a giocare",canvasInit.canvas.width / 2,canvasInit.canvas.height / 2 + 50);
 }
 
 
@@ -23,9 +23,7 @@ var loopGame = () => {
 
 var startGame = () => {
     intro();
-    setTimeout(function() {
-      loopGame();
-    }, 3000);
+
 };
 
 startGame();

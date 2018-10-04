@@ -57,8 +57,8 @@
                     <img class="card-img-top" src="https://image.ibb.co/jNzTqp/cover2.jpg" alt="Cover creare platform: Canvas">
 
                     <div class="card-header">
-                        <h1>Creare un platform game per il web: Iniziamo, anzi inizializiamo</h1>
-                        <h4 class="card-title">Inizializiamo, iniziamo a posare le basi del gioco</h4>
+                        <h1>Creare un platform game per il web: Iniziamo, anzi inizializziamo</h1>
+                        <h4 class="card-title">Inizializziamo, iniziamo a posare le basi del gioco</h4>
                     </div>
                     <!-- card-header -->
 
@@ -73,34 +73,34 @@
                         <code>canvas.height = 480;</code> <br>
                         <div>
                             <p> Nell’articolo precedente abbiamo creato il tag &lt;canvas
-                                id="myCanvas"&gt;&lt;/canvas&gt; nel file index html e gli abbiamo dato un
+                                id="myCanvas"&gt;&lt;/canvas&gt; nel file index.html e gli abbiamo dato un
                                 identificativo (id).</p>
                             <p>Per gestire il nostro canvas catturiamo l'oggetto Html grazie al metodo Javascript,
-                                <strong>"getElementById"</strong> trammite il suo id “myCanvas” e lo salviamo della
+                                <strong>"getElementById"</strong> tramite il suo id “myCanvas” e lo salviamo nella
                                 variabile “canvas”.
-                                Poi con il metodo <strong>getContext</strong> richiamiamo nella variabile ctx tutte le
+                                Poi con il metodo <strong>"getContext"</strong> richiamiamo nella variabile "context" tutte le
                                 funzioni che ci serviranno per gestire il contesto indicato.</p>
-                            <p>Nel nostro caso, essendo un gioco in 2 dimensioni, richiameremo i metodi per che
+                            <p>Nel nostro caso, essendo un gioco in 2 dimensioni, richiameremo i metodi che
                                 serviranno per il "2d"</p>
 
                             <!-- Creare un blocco di colore diverso per le domande -->
                             <i>Ma quindi, ci sono altri contesti?</i>
                             <p>Si, ci sono i contesti “webgl” e “webgl2” che gestiscono il 3d. E’ ancora una tecnologia
-                                acerba e in fase embrionale, ma tenere sottocchio.</p>
-                            <p>Se sei curioso, dai un occhio alla mia pagina facebook, <a href="https://www.facebook.com/webgamemaker">web
-                                    game maker</a>, dove posto sempre esperimenti 3d, trovati in rete che ti fanno
+                                acerba e in fase embrionale, ma, a mio avviso, da tenere sott'occhio.</p>
+                            <p>Se sei curioso tieni d'occhio la mia pagina Facebook, <a href="https://www.facebook.com/webgamemaker">web
+                                    game maker</a>, dove posto esperimenti 3d trovati in rete che ti fanno
                                 capire il potenziale di questa tecnologia.</p>
-                            <p>Ad esempio, questa animazione mi ha lasciato a bocca aperta: <a href="https://www.martin-laxenaire.fr/experiments/fall-of-neo-dubai/">fall-of-neo-dubai</a>
+                            <p>Per darti un esempio, questa animazione mi ha lasciato letteralmente a bocca aperta: <a href="https://www.martin-laxenaire.fr/experiments/fall-of-neo-dubai/">fall-of-neo-dubai</a>
                             </p>
 
-                            <p>Torniamo ad analizzare il codice, con canvas.width e canvas.height diamo rispettivamente
-                                la lunghezza e l’altezza al canvas.</p>
+                            <p>Ma...torniamo a noi e concludiamo analizzando il codice, con canvas.width e canvas.height, i quali indicano, rispettivamente
+                                la lunghezza e l’altezza del canvas.</p>
 
                             <h3>Creiamo un'introduzione</h3>
                             <p>Per prendere confidenza con alcuni metodi del canvas che abbiamo richiamato con
                                 getContext, creiamo una semplice presentazione del gioco.</p>
                             <p>Sarà una schermata colorata con al centro una scritta, di due dimensioni e di due tipi
-                                di font. Scomparirà dopo 3 secondi lasciando il posto al gioco vero e proprio.</p>
+                                di font.</p>
 
                             <code>var intro = () => {</code><br>
                             <code>&nbsp;&nbsp;context.fillStyle = "#ffad6a";</code><br>
@@ -113,33 +113,29 @@
 
                             <code>&nbsp;&nbsp;context.fillStyle = "#6a8aff";</code><br>
                             <code>&nbsp;&nbsp;context.font = "20px Arial";</code><br>
-                            <code>&nbsp;&nbsp;context.fillText("Tra 3 secondi partirà il gioco",canvas.width /
+                            <code>&nbsp;&nbsp;context.fillText("Premi invio per iniziare a giocare",canvas.width /
                                 2,canvas.height / 2 + 50);</code><br>
                             <code>}</code>
 
-                            <p>Analiziamo ivari comandi del codice: </p>
-                            <p><strong>fillStyle(colore)</strong> Definisce il colore dell’elemento successivo, che nel
-                                nostro caso è un bellissimo arancione (faccina schifata).</p>
+                            <p>Analizziamo i vari comandi del codice: </p>
+                            <p><strong>fillStyle(<i>colore</i>)</strong> Definisce il colore dell’elemento successivo (fillStyle), che nel
+                                nostro caso è un bellissimo arancione 🤢.</p>
                             <p><strong>fillRect(x, y, larghezza, altezza)</strong> Stampa a video un rettangolo, che
                                 parte dal punto Origine (0,0) ed è largo e alto esattamente come il canvas.</p>
                             <p><strong>font(font)</strong> Definisce il tipo e la grandezza del font </p>
                             <p><strong>textAlign()</strong> Allinea il testo</p>
                             <p><strong>fillText(“testo”, x, y)</strong> Stampa a video il testo che gli passiamo come
-                                primo argomento e lo posizione nel canvas, con gli altri due. Nel nostro caso lo
+                                primo argomento e lo posiziona nel canvas, con gli altri due. Nel nostro caso lo
                                 abbiamo centrato, come x, la metà della larghezza del canvas e come y, la metà della
                                 lunghezza del canvas.</p>
-                               <code>var startGame = () => {</code><br> 
-                               <code>&nbsp;&nbsp;intro();</code><br>     
-                               <code>&nbsp;&nbsp;setTimeout(function() {</code><br>     
-                               <code>&nbsp;&nbsp;&nbsp;&nbsp;loopGame();</code><br>     
-                               <code>&nbsp;&nbsp;}, 3000);</code><br>     
-                               <code>};</code><br>     
-                            <p>Richiamiamo la nostro funzione intro dentro la funzione StartGame, che come dice il nome è la funzione che fa partire il gioco.</p> 
-                            <p>Poi come promesso nell’intro, usando il comando javascript <strong>"setTimeout"</strong> dopo 3000 millesimi, che equivalgono a 3 secondi, parte il cuore del nostro gioco, la funzione loopGame, che vedremo nel dettaglio nell'articolo "".</p> 
+                            <code>intro();</code><br>             
+                            <p>Richiamiamo la nostro funzione intro, che come si evince dal nome è la funzione che fa partire il gioco.</p> 
                             <canvas id="platform-canvas-init" style="border: 1px solid black"></canvas>
-                            <p>Naturalmente, dopo la intro apparirà uno schermo vuoto, ma niente paura nel <a href="">prossimo articolo</a> , creeremo il nostro livello con delle immagini.</p>
+                            <p>Naturalmente, nel nostro caso, sarà inutile schiacciare il tasto perchè non sarà ancora funzionante.</p>
+                            <p>Stai tranquillo che varrà attivato nel post [nome del post]</p>
                                
-                            <p>Per adesso, come esercizio, dopo la intro fai apparire una schermata a tuo piaciamento, con colore di sfondo, scritte e formattazione a tua scelta.  BuonDivertimento.</p>
+                            <p>Per adesso, come esercizio, dopo l'intro fai apparire una schermata a tuo piaciamento, con colore di sfondo, scritte e formattazione a tua scelta.</p>  
+                            <p>Buon divertimento</p>
                                
                                
                         </div>
