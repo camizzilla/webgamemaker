@@ -65,126 +65,18 @@
 
                     <div class="card-body">
                         <div>
-                            <p>Nell'articolo precedente <a href="">"Iniziamo, anzi inizializziamo"</a> ci siamo scaldati
-                                creando una semplice introduzione testuale.</p>
-                            <p>Obiettivo di questo articolo è caricare a video delle immagini statiche che serviranno a
-                                costruire il livello.</p>
-                            <p>Creiamo un nuovo oggetto Image() e salviamo il percorso di dove si trova l’immagine che
-                                vogliamo caricare. </p>
-
-                            <code>let sMario= new Image();</code><br>
-                            <code>sMario.src = “https://image.ibb.co/hJBkCy/mario.png”;</code><br>
-
-                            <p>Ho usato un'immagine del mitico Super Mario, è una risorsa esterna e utilizzabile per uso non
-                                commerciale, come tutte le immagini che userò all'interno del nostro corso.</p>
-                            <p> Quindi sentiti libero di usarle a tuo piacimento.</p>
-                            <img src="https://image.ibb.co/hJBkCy/mario.png" alt="Super Mario Bros">
-                            <p>Per stampare a video si usa il metodo del context, <strong>drawImage(img, x,y)</strong>
-                                che prende come
-                                parametri, l’immagine che abbiamo salvato nella variabile img e le coordinate spaziali
-                                x e y per il posizionamento nel canvas.
-                            </p>
-                            <code>let sMario= new Image();</code><br>
-                            <code>sMario.src = “https://image.ibb.co/hJBkCy/mario.png”;</code><br><br>
-
-                            <code>canvasInit.ctx.drawImage(sMario, 0,0);</code><br>
-
-                            <p> Vediamo di seguito il risultato.
-                            </p>
-                            <canvas id="platform-canvas-init" style="border: 1px solid black"></canvas>
-
-                            <p><i>Ammazza, quanto è grande, occupa tutto lo spazio!</i></p>
-                            <p>Effettivamente, così grande è inutilizzabile, per questo andremo a rimpicciolirlo aggiungendo
-                                altri due argomenti alla funzione, che indicheranno la grandezza e la lunghezza
-                                dell’immagine.<p>
-                                <strong>DrawImage(img, x, y, larghezza, lunghezza)</strong>.</p>
-
-                                <code>canvasInit.ctx.drawImage(sMario, 0, 0, 100, 100);</code><br>
-                            <canvas id="platform-canvas-init2" style="border: 1px solid black"></canvas>
-                            <h3>Paragrafo 2</h3>
-                            <p>Il nostro platform è formato da molti elementi grafici e creare un oggetto per ogni
-                                immagine diventa molto poco performante, quindi una soluzione ottimale è caricare
-                                un’unica immagine grande che contiene tutti gli elementi e dalla quale andremo a selezionare
-                                solo la porzione che ci serve.</p>
-                            <p>
-                                Visto le mie scarse doti artistiche, mi sono scaricato dalla pagina <a href="https://opengameart.org/content/platformer-art-deluxe">https://opengameart.org/content/platformer-art-deluxe</a>
-                                , una collezioni di immagini, creata da <a href="https://www.kenney.nl">https://www.kenney.nl</a>
-                                da cui ho estrapolato tra le tante questa che trovo perfetta per il platform.
-                            </p>
-                            <img src="https://image.ibb.co/gE8G6e/items_spritesheet.png" alt="items spritesheet">
-                            <div>
-                                <code>let ItemsBundle= new Image();</code><br>
-                                <code>ItemsBundle.src = “https://image.ibb.co/gE8G6e/items_spritesheet.png”</code><br>
-                            </div>
-
-                            <p>
-                                Una volta creato un nuovo oggetto con l'immagine, andiamo a selezionare gli elementi che
-                                vogliamo posizionare.</p>
-                             <p>Useremo sempre il metodo visto in precedenza, aggiungendo di volta in volta ulteriori argomenti.
-                                 <p> Andiamo ad analizzarli:</p>
-                            <p>
-                                DrawImage(img, xSelezione, ySelezione, larghezzaSelezione, lunghezzaSelezione,
-                                xImmagine, yImmagine, larghezzaImmagine, lunghezzaImmagine);
-                            </p>
-                            <p>
-                                Img, è l'oggetto dov'è stata caricata l'immagine.
-                            </p>
-                            <p>
-                                xSelezione e ySelezione sono le coordinate di partenza della selezione nella nostra
-                                immagine, mentre la larghezzaSelezione e lunghezzaSelezione ritagliano l’immagine in un
-                                quadrilatero delle dimensioni richieste.</p>
-                            <p>Gli altri 4 argomenti, xImmagine, YImmagine, larghezzaImmagine e lunghezzaImmagine. Li
-                                abbiamo già visti nel precedente paragrafo e sono il posizionamento x y dell’ oggetto
-                                selezionato nel canvas e la larghezza e la lunghezza dell'oggetto selezionato.</p>
-                            <p>L’esempio n.1 ti chiarirà ogni dubbio.</p>
-                            <img src="https://image.ibb.co/hZQFjz/items_spritesheet.jpg" alt="items spritesheet"><br>
-                            <i>Ma come faccio a sapere le coordinate e le dimensioni esatte? Non dovrò mica usare il
-                                righello?</i>
-                            <p>Assolutamente no, insieme alle immagini fortunatamente c'è un file xml, con tutte le
-                                informazioni per la selezione.</p>
-                            <p>&lt;SubTexture height="70" width="70" y="72" x="131" name="gemYellow.png"/&gt;</p>
-                            <i>Ma se io volessi prendere delle immagini sparse e le volessi unire in un'unica grande immagine, dovrei
-                                segnarmi tutte le coordinate e le dimensioni di ogni singolo oggetto?</i>
-                            <p>No, in rete ci sono dei programmi che svolgono questo annoso compito al posto tuo, ovvero, aggregano
-                                le immagini e ti creano in automatico un file con tutti i dati.</p>
-                                <p>Siccome è un argomento abbastanza impegnativo, ci creerò presto un post dedicato.</p>
-
-                            <p>Continuiamo la nostra creazione, quello che ci serve, saranno due gemme gialle, che andremo a posizionare sullo schermo,
-                                perché per poter passare al livello successivo dovremo recuperarle entrambe.</p>
-                            <p>Non ti aspettavi un gioco così complesso vero? 🤨.</p>
-                            <p>Non hai ancora visto niente! </p>
-                                <p>La gemma che ci serve, si trova all'interno dell'immagine alle coordinate x:131 e y:72, ed è
-                                lunga 70px e alta 70px, vedi esempio n.2.</p>
-                            <p>Posizioniamo sul canvas, una gemma delle dimensioni esatte e la seconda grande il doppio,
-                                rispettivamente x 100 e y 300 la prima e x 200 e y 150 la seconda rispetto al cavas.</p>
-                            <p>Vediamo il risultato nell'esempio n.3</p>
-                            <canvas id="platform-canvas-init3" style="border: 1px solid black"></canvas><br>
-
-                            <code>let ItemsBundle= new Image();</code><br>
-                            <code>ItemsBundle.src = 'https://image.ibb.co/gE8G6e/items_spritesheet.png';</code><br>
-
-                            <code>loopGame = () => {</code><br> 
-                            <code>&nbsp;&nbsp;canvasInit3.ctx.drawImage(ItemsBundle, 131, 72, 70, 70, 100, 300, 70, 70);</code><br>
-                            <code>&nbsp;&nbsp;canvasInit3.ctx.drawImage(ItemsBundle, 131, 72, 70, 70, 200, 150, 140, 140);</code><br>
-                            <code>}</code><br>
-
-
-                            <code>startGame = () => {</code><br> 
-                            <code>&nbsp;&nbsp;ItemsBundle.onload = function() {</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;loopGame();</code><br>
-                            <code>&nbsp;&nbsp;}</code><br>
-                            <code>};</code><br>
-
-                            <p>Questo non è il modo migliore per creare la struttura di un livello, in un prossimo articolo ti spiegherò qual è la miglior soluzione.</p>
-                            <p>Ho volutamente messo da parte per un attimo l'intro, che abbiamo creato nel post precedente, perché non avendo ancora impostato l'evento che gestisce i pulsanti, non avrei potuto mostrarti il risultato.</p>
-                            <p>In più, essendo javascript un linguaggio asincrono, utilizzando onload, che ci permette di far partire la funzione "loopGame()" che stampa a video le immagini, 
-                             questa sarebbe partita prima del caricamento dell'immagine non mostrando nulla sul canvas.</p>
-                            <h3>Ricapitolando</h3>
-                            <p>In questo articolo abbiamo imparato come si stampano a video i vari componenti statici.</p>
-                            <p>Sicuramente il secondo metodo è preferibile al primo, per questo è importante che tu lo capisca bene e impari a padroneggiarlo nel miglior modo possibile, per questo qualsiasi difficoltà tu possa incontrare ricordati che puoi contattarmi in ogni momento.</p> 
-                            , anche perché è la base per creare gli sprite, ovvero le immagini animate, tra cui il nostro protagonista, ma di questo... ne parleremo approfonditamente nel prossimo capitolo. </p>
-                            <canvas id="platform-canvas-init4" style="border: 1px solid black"></canvas><br>
-                            
+                            <p>Nell'articolo precedente, <a href="">"Immagini statiche"</a>, abbiamo popolato il canvas
+                                con immagini statiche.</p>
+                            <p>Adesso con il metodo <strong>"drawImage"</strong>, che oramai abbiamo iniziato a
+                                conoscere bene, animeremo alcuni oggetti e personaggi del platform.</p>
+                            <p>Tra cui il nostro protagonista.</p>
+                            <p>Visto che il nostro scopo è rubare diamanti, il nostro eroe sarà il ladro più famoso del
+                                mondo. Lupen III.</p>
+                            <p>Userò un sprite che ho scaricato da <a href="www.spriters-resource.com">www.spriters-resource.com</a>,
+                                un sito di risorse molto ricco di sprite di videogiochi. Che deprederò anche per i prossimi progetti.</p>
+                            <p>L'immagine è gratuita per usi non commerciali gratuito, quindi visto che non ti faccio
+                                pagare niente (per ora 😁), lo possiamo usare
+                                tranquillamente.</p>
                         </div>
                         <!-- card-body -->
 
