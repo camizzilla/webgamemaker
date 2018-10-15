@@ -163,7 +163,7 @@
                             <code>let ItemsBundle= new Image();</code><br>
                             <code>ItemsBundle.src = 'https://image.ibb.co/gE8G6e/items_spritesheet.png';</code><br>
 
-                            <code>loopGame = () => {</code><br> 
+                            <code>draw = () => {</code><br> 
                             <code>&nbsp;&nbsp;canvasInit3.ctx.drawImage(ItemsBundle, 131, 72, 70, 70, 100, 300, 70, 70);</code><br>
                             <code>&nbsp;&nbsp;canvasInit3.ctx.drawImage(ItemsBundle, 131, 72, 70, 70, 200, 150, 140, 140);</code><br>
                             <code>}</code><br>
@@ -171,13 +171,13 @@
 
                             <code>startGame = () => {</code><br> 
                             <code>&nbsp;&nbsp;ItemsBundle.onload = function() {</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;loopGame();</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;draw();</code><br>
                             <code>&nbsp;&nbsp;}</code><br>
                             <code>};</code><br>
 
                             <p>Questo non è il modo migliore per creare la struttura di un livello, in un prossimo articolo ti spiegherò qual è la miglior soluzione.</p>
                             <p>Ho volutamente messo da parte per un attimo l'intro, che abbiamo creato nel post precedente, perché non avendo ancora impostato l'evento che gestisce i pulsanti, non avrei potuto mostrarti il risultato.</p>
-                            <p>In più, essendo javascript un linguaggio asincrono, utilizzando onload, che ci permette di far partire la funzione "loopGame()" che stampa a video le immagini, 
+                            <p>In più, essendo javascript un linguaggio asincrono, utilizzando onload, che ci permette di far partire la funzione "draw()" che stampa a video le immagini, 
                              questa sarebbe partita prima del caricamento dell'immagine non mostrando nulla sul canvas.</p>
                             <h3>Ricapitolando</h3>
                             <p>In questo articolo abbiamo imparato come si stampano a video i vari componenti statici.</p>
